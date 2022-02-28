@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Emacs Guide</title>
+<link rel="stylesheet" type="text/css" media="all" charset="utf-8" href="plain/css/common.css">
+<link rel="stylesheet" type="text/css" media="screen" charset="utf-8" href="plain/css/screen.css">
+<link rel="stylesheet" type="text/css" media="print" charset="utf-8" href="plain/css/print.css">
+<style type="text/css">
+ul.pagetitle{
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}
+li.pagetitle{
+  display: inline;
+  margin: 0;
+}
+td.noborder {
+  border: 0;
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<td class="noborder">
+<img src="logo.png">
+</td>
+<td class="noborder">
+<ul class="pagetitle">
+<li class="pagetitle"><a class="backlink">Emacs Guide</a>
+</ul>
+<br><br>
+[<a href="ComputingHome.html">ComputingHome</a>]&nbsp;[<a href="TitleIndex.html">TitleIndex</a>]&nbsp;[<a href="WordIndex.html">WordIndex</a>]&nbsp;
+</td>
+</tr>
+</table>
+<hr>
+<div id="page">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><p class="line867"><div class="table-of-contents"><p class="table-of-contents-heading">Contents<ol><li>
+<a href="#Structure_of_the_Emacs_Display">Structure of the Emacs Display</a></li><li>
+<a href="#Special_Keys_and_Their_Notation">Special Keys and Their Notation</a></li><li>
+<a href="#Start.2C_Stop_and_File_Operations">Start, Stop and File Operations</a></li><li>
+<a href="#Cursor_Movement_and_Scrolling">Cursor Movement and Scrolling</a></li><li>
+<a href="#Insert.2C_Delete_and_Restore_Operations">Insert, Delete and Restore Operations</a></li><li>
+<a href="#Search_and_Replace_Operations">Search and Replace Operations</a></li><li>
+<a href="#Miscellaneous_Commands">Miscellaneous Commands</a></li></ol></li></ol></div> <span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span><p class="line867">
+<h1 id="Emacs_Guide">Emacs Guide</h1>
+<span class="anchor" id="line-7"></span><span class="anchor" id="line-8"></span><p class="line874">This brief introduction to use of the emacs editor covers basic features.   <span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span><p class="line874">Emacs may be launched in a separate graphical window or in textual mode within the current terminal window.  When starting graphically, an X-server must be available, so Windows users should preload X-Win32.  The command shown below loads a graphical emacs window with the file probtest.sas for editing.  <span class="anchor" id="line-11"></span><span class="anchor" id="line-12"></span><p class="line867"><span class="anchor" id="line-13"></span><span class="anchor" id="line-14"></span><pre><span class="anchor" id="line-1"></span>&gt; emacs probtest.sas &amp;</pre><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span><p class="line862">The <strong>Help</strong> menu provides learning and support aids ranging from keyword command searches to online manuals.  For information on the many advanced features of emacs, consult the authoritative <a class="http" href="http://www.gnu.org/software/emacs/manual/emacs.html">online documentation</a> from the GNU Project or the <a class="http" href="http://oreilly.com/catalog/9780596006488/">published guide</a> from O'Reilly and Associates. <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><p class="line862">To edit a file non-graphically in the terminal window emacs is called from, use the following type of invocation.  The <strong>-nw</strong> parameter indicates <strong>no windows</strong>. <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span><p class="line867"><span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span><pre><span class="anchor" id="line-1-1"></span>&gt; emacs -nw probtest.sas</pre><p class="line874"> <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span><p class="line867">
+<h2 id="Structure_of_the_Emacs_Display">1. Structure of the Emacs Display</h2>
+<span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span><p class="line862">The resulting emacs window is shown below.  A text mode emacs window has many of the same features, but lacks the top menu bar and the taskbar icons.  All but the last two lines of the screen comprise the edit workspace.  The first of these two lines is the <strong>mode line</strong>.  It indicates the name of the file being edited.  If two asterisks (**) appear to the left of the filename, the contents of the edit buffer have changed since the last save.  Emacs operates in one of several pre-defined <strong>major</strong> modes, with additional <strong>minor</strong> mode options affecting major mode performance when applied.  By default emacs will open in <strong>Text</strong> major mode (for editing regular text files) with the <strong>Fill</strong> minor mode feature turned on.  Fill mode is equivalent to word-wrap in a word processor.  When you reach what emacs considers the end-of-line, the editor automatically inserts a line feed and starts the next line.  Fill mode may not be desirable when editing program code and can be toggled off (as described below under miscellaneous commands).  When fill mode is off, lines which extend beyond the visible screen width are wrapped with a backslash (\) at the end to indicate that the next line is a continuation.  <strong>L1</strong> indicates that the cursor is positioned on the first line of the file.  <strong>All</strong> indicates that the complete file is displayed in the edit buffer. <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span><p class="line862">The last line of the screen is the <strong>minibuffer</strong>.  It provides general information, displays emacs commands as you type them and prompts for various types of information as needed.    <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span><p class="line874"><img alt="emacs.png" class="attachment" src="attachments/Emacs(20)Guide/emacs.png" title="emacs.png"> <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><p class="line867">
+<h2 id="Special_Keys_and_Their_Notation">2. Special Keys and Their Notation</h2>
+<span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><p class="line862">Emacs edit operations are driven by special keystroke combinations.  Many involve the use of the control key [<strong>Ctrl</strong>] typed <strong>simultaneously</strong> with another key, herein denoted for example as [<strong>Ctrl-x</strong>].  A leading control key combination may constitute a complete command or may be followed by additional keystrokes or keywords. <span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span><p class="line862">Other operations involve use of the <strong>META</strong> key, which is <strong>pressed, released and then followed</strong> by other keystrokes.  The META key is programmable, but is typically mapped to the [<strong>Esc</strong>] key on your keyboard.  Such combinations are denoted here as [<strong>Esc</strong>][<strong>x</strong>] to indicate separately typed keys. <span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span><p class="line867">
+<h2 id="Start.2C_Stop_and_File_Operations">3. Start, Stop and File Operations</h2>
+<span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><div><table><tbody><tr>  <td style="background-color: #FFFF68; width: 20%"><p class="line862"> <strong>Command</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Operation</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-41"></span><p class="line862"> <strong>emacs &amp;</strong> </td>
+  <td><p class="line862"> Launch empty buffer (no file) in a new, menued, GUI window - PC X-server must be loaded. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-42"></span><p class="line862"> <strong>emacs</strong> <em>filename</em> <strong>&amp;</strong> </td>
+  <td><p class="line862"> Open <em>filename</em> in a new, menued, GUI window - PC X-server must be loaded. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-43"></span><p class="line862"> <strong>emacs -nw</strong> </td>
+  <td><p class="line862"> Launch with empty buffer (no file) in current terminal window - in textual mode without X-window support. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-44"></span><p class="line862"> <strong>emacs -nw</strong> <em>filename</em> </td>
+  <td><p class="line862"> Open <em>filename</em> in current terminal window - in textual mode without X-window support. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-45"></span><p class="line862"> [<strong>Ctrl-x</strong>][<strong>Ctrl-s</strong>] </td>
+  <td><p class="line862"> Save file without quitting - if filename was unspecified at startup, you are prompted for a filename. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-46"></span><p class="line862"> [<strong>Ctrl-x</strong>][<strong>Ctrl-w</strong>] </td>
+  <td><p class="line862"> Save current work to a different file - you are prompted for the location and name of the file. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-47"></span><p class="line862"> [<strong>Ctrl-x</strong>][<strong>Ctrl-c</strong>] </td>
+  <td><p class="line862"> Quit emacs - if current work is unsaved, you are prompted whether to save work. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-48"></span><p class="line862"> [<strong>Ctrl-x</strong>][<strong>Ctrl-v</strong>] </td>
+  <td><p class="line862"> Find an alternate file and replace it as the file currently being edited - you are prompted for location and name of the file. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-49"></span><p class="line862"> [<strong>Ctrl-x</strong>] <strong>i</strong> </td>
+  <td><p class="line862"> Insert a file at the current cursor position - you are prompted for the location and name of the file. </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><p class="line867">
+<h2 id="Cursor_Movement_and_Scrolling">4. Cursor Movement and Scrolling</h2>
+<span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span><div><table><tbody><tr>  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Backward</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Forward</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Unit of Movement</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-54"></span><p class="line862"> [<strong>Ctrl-b</strong>] or <strong>left</strong> arrow </td>
+  <td><p class="line862"> [<strong>Ctrl-f</strong>] or <strong>right</strong> arow </td>
+  <td><p class="line862"> character </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-55"></span><p class="line862"> [<strong>Esc</strong>][<strong>b</strong>] </td>
+  <td><p class="line862"> [<strong>Esc</strong>][<strong>f</strong>] </td>
+  <td><p class="line862"> word </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-56"></span><p class="line862"> [<strong>Ctrl-p</strong>] or <strong>up</strong> arrow </td>
+  <td><p class="line862"> [<strong>Ctrl-n</strong>] or <strong>down</strong> arrow </td>
+  <td><p class="line862"> line </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-57"></span><p class="line862"> [<strong>Ctrl-a</strong>] </td>
+  <td><p class="line862"> [<strong>Ctrl-e</strong>] </td>
+  <td><p class="line862"> beginning (or end) of line </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-58"></span><p class="line862"> [<strong>Esc</strong>][<strong>v</strong>] </td>
+  <td><p class="line862"> [<strong>Ctrl-v</strong>] </td>
+  <td><p class="line862"> screen - this is used to <strong>page</strong> through a large document </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-59"></span><p class="line862"> [<strong>Esc</strong>][<strong>&lt;</strong>] </td>
+  <td><p class="line862"> [<strong>Esc</strong>][<strong>&gt;</strong>] </td>
+  <td><p class="line862"> beginning (or end) of file </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-60"></span><span class="anchor" id="line-61"></span><p class="line867">
+<h2 id="Insert.2C_Delete_and_Restore_Operations">5. Insert, Delete and Restore Operations</h2>
+<span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span><div><table><tbody><tr>  <td style="background-color: #FFFF68; width: 25%"><p class="line862"> <strong>Command</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Operation</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-64"></span><p class="line862"> [<strong>Insert</strong>] key </td>
+  <td><p class="line862"> Toggles between insert and overwrite mode - note changes to mode line at bottom of screen as toggled. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-65"></span><p class="line862"> [<strong>Delete</strong>] or [<strong>Backspace</strong>] key </td>
+  <td><p class="line862"> Delete character to left of cursor. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-66"></span><p class="line862"> [<strong>Ctrl-d</strong>] </td>
+  <td><p class="line862"> Delete character under the cursor. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-67"></span><p class="line862"> [<strong>Esc</strong>][<strong>Delete</strong>] </td>
+  <td><p class="line862"> Delete previous word. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-68"></span><p class="line862"> [<strong>Esc</strong>][<strong>d</strong>] </td>
+  <td><p class="line862"> Delete word the cursor is on. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-69"></span><p class="line862"> [<strong>Esc</strong>][<strong>0</strong>][<strong>Ctrl-k</strong>] </td>
+  <td><p class="line862"> Delete from the beginning of the line to the cursor location. NOTE: the second key is <strong>zero</strong>. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-70"></span><p class="line862"> [<strong>Ctrl-k</strong>] </td>
+  <td><p class="line862"> Delete from cursor to the end of the line - using a second time will delete the carriage return. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-71"></span><p class="line862"> [<strong>Ctrl-Space</strong>] at start of block <br>
+ [<strong>Ctrl-w</strong>] at end of block </td>
+  <td><p class="line862"> Delete a block of text - place cursor at beginning of block and mark it with the first command; move cursor to end of block and type second command to delete. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-72"></span><p class="line862"> [<strong>Ctrl-y</strong>] </td>
+  <td><p class="line862"> Yank back (restore) text from last deletion - the results of several delete operations performed in succession, without intervening commands or typing, are restored in one yank operation. It can also be used to repeatedly paste the same block of text to different locations in the file. </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-73"></span><span class="anchor" id="line-74"></span><p class="line867">
+<h2 id="Search_and_Replace_Operations">6. Search and Replace Operations</h2>
+<span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><div><table><tbody><tr>  <td style="background-color: #FFFF68; width: 25%"><p class="line862"> <strong>Command</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Operation</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-77"></span><p class="line862"> [<strong>Ctrl-s</strong>] </td>
+  <td><p class="line862"> Initiates a forward search operation from the current cursor location. You are prompted at the bottom of the screen for a search string. As you type the string, the cursor positions after the last character of the first instance of the string being typed. To find the next instance of the same string, enter [<strong>Ctrl-s</strong>] again and type the [<strong>Enter</strong>] key twice. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-78"></span><p class="line862"> [<strong>Ctrl-r</strong>] </td>
+  <td><p class="line862"> Initiates a backward search operation from the current cursor location. You are prompted at the bottom of the screen for a search string. As you type the string, the cursor positions on the first character of the first instance of the string being typed. To find the next instance of the same string, enter [<strong>Ctrl-r</strong>] again and type the [<strong>Enter</strong>] key twice. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-79"></span><p class="line862"> [<strong>Esc</strong>][<strong>%</strong>] </td>
+  <td><p class="line862"> Initiates a query replace operation. You are prompted for the search string. After entering the string, type [<strong>Enter</strong>]. You are prompted for the replace string. Type it and press [<strong>Enter</strong>]. You are prompted for confirmation. To replace one instance and move on to the next, type [<strong>Space</strong>]. For a menu of other options, type [<strong>?</strong>]. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-80"></span><p class="line862"> [<strong>Esc</strong>][<strong>x</strong>]<strong>replace-string</strong> </td>
+  <td><p class="line862"> Initiates a global replace operation without confirmation. The <strong>replace-string</strong> (typed exactly as shown) is part of the command. You are prompted for the search string. Type it and press [<strong>Enter</strong>]. You are prompted for the replacement string. Type it and press [<strong>Enter</strong>]. All instances of the search string are replaced. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-81"></span><p class="line862"> [<strong>Esc</strong>] </td>
+  <td><p class="line862"> Terminates search and search-replace operations. </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><p class="line867">
+<h2 id="Miscellaneous_Commands">7. Miscellaneous Commands</h2>
+<span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><div><table><tbody><tr>  <td style="background-color: #FFFF68; width: 25%"><p class="line862"> <strong>Command</strong> </td>
+  <td style="background-color: #FFFF68;"><p class="line862"> <strong>Operation</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-86"></span><p class="line862"> [<strong>Ctrl-g</strong>] </td>
+  <td><p class="line862"> General comand to abort any operation in progress or partially entered command. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-87"></span><p class="line862"> [<strong>Ctrl-x</strong>][<strong>u</strong>] </td>
+  <td><p class="line862"> Undo last edit. This command may be entered repeatedly to undo a series of edits in reverse order. Undo operations may be applied up to the last save operation. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-88"></span><p class="line862"> [<strong>Esc</strong>][<strong>x</strong>]<strong>line-number-mode</strong> </td>
+  <td><p class="line862"> A toggle that turns line numbering on or off on the mode line. When on, the mode line will display which line in the file the cursor is located on. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-89"></span><p class="line862"> [<strong>Esc</strong>][<strong>x</strong>]<strong>auto-fill-mode</strong> </td>
+  <td><p class="line862"> A toggle that turns <strong>Fill</strong> mode on or off. When on <strong>Fill</strong> will be displayed on the mode line as the minor mode setting. </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-90"></span><p class="line862"> [<strong>Esc</strong>][<strong>q</strong>] </td>
+  <td><p class="line862"> Reformats a paragraph when <strong>Fill</strong> mode is toggled on. This command is particularly useful when editing text as opposed to program code. It reformats a paragraph that you have edited and aligns text within the fill margin. </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><p class="line867"><hr class="hr2" /><p class="line874"> <span class="anchor" id="line-94"></span><div><table style="width: 99%"><tbody><tr>  <td colspan="3" style="text-align: center"><p class="line891"><a class="http" href="http://computing.soc.duke.edu/computing">Computing Home</a> | <a class="http" href="http://www.soc.duke.edu">Sociology Home</a> | <a class="http" href="http://trinity.duke.edu">Trinity College Home</a> | <a class="http" href="http://www.duke.edu">Duke Home</a> </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-95"></span><span class="anchor" id="bottom"></span></div>
+</div>
+<hr>
+2020-08-31 15:19
+</body>
+</html>
